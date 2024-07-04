@@ -23,11 +23,11 @@ class OrderSerializer(serializers.Serializer):
     orderId = serializers.IntegerField(source='id')
     memberId = serializers.IntegerField(source='member.id')
     orderDate = serializers.DateTimeField(source = 'order_date')
-    item = OrderItemSerializer(source='order_items',many=True)
+    items = OrderItemSerializer(source='order_items',many=True)
     status = serializers.CharField()
     
     class Meta:
         model = Order
-        fields = ['orderId', 'memberId', 'orderDate', 'item', 'status']
+        fields = ['orderId', 'memberId', 'orderDate', 'items', 'status']
     
     
